@@ -7,7 +7,7 @@ describe "user deletes a job" do
       job_1 = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver")
       job_2 = company.jobs.create!(title: "QA Analyst", level_of_interest: 70, city: "New York City")
 
-      visit company_path(job_1)
+      visit company_jobs_path(company, job_1)
       click_link "Delete"
 
       expect(current_path).to eq(companies_path)
