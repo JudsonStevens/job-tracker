@@ -11,8 +11,6 @@ describe "User sees all jobs" do
     expect(page).to have_content("ESPN")
     expect(page).to have_content("Developer")
     expect(page).to have_content("QA Analyst")
-<<<<<<< Updated upstream
-=======
     expect(page).to have_content("Create a New Job for #{company.name}")
   end
 
@@ -29,6 +27,5 @@ describe "User sees all jobs" do
     expect(page).to have_content('Denver')
     expect(page).to have_content(70)
     expect(page).to have_content('Developer')
->>>>>>> Stashed changes
   end
 end
