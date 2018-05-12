@@ -26,6 +26,6 @@ describe "User sees all jobs" do
     expect(current_path).to eq("/companies/#{company.id}/jobs/#{job.id}")
     expect(page).to have_content('Denver')
     expect(page).to have_content(70)
-    expect(page).to have_content("Developer")
+    expect(page).to have_content('Developer')
   end
 end
