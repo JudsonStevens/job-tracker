@@ -8,11 +8,12 @@ describe "user visits categories index" do
     category_4 = Category.create(title: "Qux")
 
     visit categories_path
+    save_and_open_page
 
-    expect(page).to have_content(category_1)
-    expect(page).to have_content(category_2)
-    expect(page).to have_content(category_3)
-    expect(page).to have_content(category_4)
+    expect(page).to have_link(category_1.title)
+    expect(page).to have_link(category_2.title)
+    expect(page).to have_link(category_3.title)
+    expect(page).to have_link(category_4.title)
   end
 
   scenario "a user clicks on a category to navigate to individual category page" do
