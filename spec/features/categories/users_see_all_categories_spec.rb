@@ -30,7 +30,7 @@ describe "user visits categories index" do
 
     visit categories_path
     click_link "Edit"
-    
+
     fill_in "category[title]",	with: "Foobarbaz"
 
     click_button "Update Category"
