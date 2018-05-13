@@ -1,31 +1,32 @@
 require 'rails_helper'
 
-describe Category, type: :model do
-  describe "validations" do
-    context "invalid attributes" do
-      it "is invalid without a title" do
-        category = Category.new
+describe Category do
+  describe 'Validations' do
+    it 'is invalid without a title' do
+      category = Category.new()
 
-        expect(category).to be_invalid
-      end
-      it "has a unique title" do
-        Category.create(title: "Foo")
-        category = Category.new(title: "Foo")
-
-        expect(category).to be_invalid
-      end
+      expect(category).to be_invalid
     end
 
-    context "valid attibutes" do
-      it "is valid with a title" do
-        category = Category.new(title: "Foo")
+    it 'is invalid if the title is the same as another title of a category' do
+      Category.create(title: 'Web')
+      category = Category.new(title: 'Web')
 
-        expect(category).to be_valid
-      end
+      expect(category).to be_invalid
     end
 
-  describe "relationships" do
-    it { should have_many(:jobs) }
+    it 'is valid with a title' do
+      category = Category.new(title: 'Web')
+
+      expect(category).to be_valid
+    end
+  end
+
+  describe 'Relationships' do
+    it 'has many jobs' do
+      category = Category.new(title: 'Web')
+
+      expect(category).to respond_to(:jobs)
     end
   end
 end
