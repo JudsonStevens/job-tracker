@@ -1,0 +1,3 @@
+class JobCommentsController < ApplicationController
+
+end
