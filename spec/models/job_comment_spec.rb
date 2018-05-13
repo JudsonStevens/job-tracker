@@ -12,7 +12,10 @@ describe JobComment do
 
     describe 'valid attributes' do
       it 'is valid with content' do
-        job_comment = JobComment.new(content: 'Never thought you would say this')
+        company = Company.create!(name: "ESPN")
+        category = Category.create!(title: 'Web')
+        job = company.jobs.create!(title: "Developer", description: 'Great job', level_of_interest: 70, category_id: category.id, city: "Denver")
+        job_comment = job.job_comments.create!(content: "I can't belive you've done this")
 
         expect(job_comment).to be_valid
       end
