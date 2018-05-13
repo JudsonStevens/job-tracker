@@ -8,7 +8,6 @@ describe "user visits categories index" do
     category_4 = Category.create(title: "Qux")
 
     visit categories_path
-    save_and_open_page
 
     expect(page).to have_link(category_1.title)
     expect(page).to have_link(category_2.title)
@@ -27,17 +26,16 @@ describe "user visits categories index" do
   end
 
   scenario "a user can edit a category" do
-    category = Category.new(title: "Foo")
+    category = Category.create(title: "Foo")
 
     visit categories_path
-
-    click_button "Edit"
-
+    click_link "Edit"
+    
     fill_in "category[title]",	with: "Foobarbaz"
 
-    click_button "Submit"
+    click_button "Update Category"
 
-    expect(current_path).to eq(categories_path)
+    expect(current_path).to eq("/categories/#{category.id}")
     expect(page).to have_content("Foobarbaz")
     expect(page).to_not have_content(category)
   end
