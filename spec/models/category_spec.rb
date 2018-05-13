@@ -14,7 +14,8 @@ describe Category do
 
         expect(category).to be_invalid
       end
-
+    end
+    
     context "valid attibutes" do
       it "is valid with a title" do
         category = Category.new(title: "Foo")
