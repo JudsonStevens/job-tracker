@@ -1,0 +1,5 @@
+All Categories
+
+<% @categories.each do |category| %>
+  <ul><a href="/categories/<%= category.id %>"><%= category.title %></a></ul>
+<% end %>
