@@ -13,6 +13,7 @@ describe "User creates a new job" do
     select 'UX Designer', from: 'job_category_id'
 
     click_button "Create Job"
+    
     expect(current_path).to eq("/companies/#{company.id}/jobs/#{Job.all.first.id}")
     expect(page).to have_content("ESPN")
     expect(page).to have_content("Developer")
