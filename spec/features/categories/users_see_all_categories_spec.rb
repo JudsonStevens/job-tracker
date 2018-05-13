@@ -22,7 +22,7 @@ describe "user visits categories index" do
 
     click_link "Foo"
 
-    expect(current_path).to eq(jobs_path)
+    expect(current_path).to eq(category_path(category))
   end
 
   scenario "a user can edit a category" do
