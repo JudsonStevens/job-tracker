@@ -29,18 +29,15 @@ describe "User sees all jobs" do
     expect(page).to have_content('Developer')
   end
 
-  scenario 'a user can click on a job and then on the edit link to be taken to the edit view for that job' do
+  scenario 'and can click on a job and then on the edit link to be taken to the edit view for that job' do
     company = Company.create!(name: "ESPN")
-    company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver")
-    company.jobs.create!(title: "QA Analyst", level_of_interest: 70, city: "New York City")
+    job_1 = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver")
+    job_2 = company.jobs.create!(title: "QA Analyst", level_of_interest: 70, city: "New York City")
 
     visit company_path(company)
-    click_on('developer')
-    click_on('Edit')
+    click_on('Developer')
+    click_on('Update This Job')
 
-    expect(current_path).to eq("/companies/#{company.id}/jobs/#{job.id}/edit")
-    expect(page).to have_content('Denver')
-    expect(page).to have_content('Developer')
-    expect(page).to have_content(70)
+    expect(current_path).to eq("/companies/#{company.id}/jobs/#{job_1.id}/edit")
   end
 end
