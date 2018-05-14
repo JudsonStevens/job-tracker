@@ -20,6 +20,7 @@ class JobsController < ApplicationController
     end
   end
 
+  # Ask about calling @job.job_comments and how to do it from model, if need be.
   def show
     @job = Job.find(params[:id])
     @company = @job.company
@@ -55,6 +56,10 @@ class JobsController < ApplicationController
   private
 
   def job_params
-    params.require(:job).permit(:title, :description, :level_of_interest, :city, :category_id)
+    params.require(:job).permit(:title,
+                                :description,
+                                :level_of_interest,
+                                :city,
+                                :category_id)
   end
 end
