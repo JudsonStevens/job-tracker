@@ -18,6 +18,12 @@ Category: <%= @job.category.title %>
 
 <%= render partial: '/job_comments/form'%>
 <br>
+Previous Comments: 
+<p>
+  <% @job_comments.each do |comment| %>
+   <p> <%= comment.content %> </p>
+  <% end %>
+</p>
 
 <%= link_to 'Update This Job', edit_company_job_path(@job.company, @job)%>
 <br>
