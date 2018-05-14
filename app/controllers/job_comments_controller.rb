@@ -4,10 +4,6 @@ class JobCommentsController < ApplicationController
     @job_comments = @job.job_comments
   end
 
-  # def new
-  #   @job_comments = JobComments.new()
-  # end
-
   def create
     @job = Job.find(params[:job_id])
     @job_comment = @job.job_comments.create!(job_comment_params)
