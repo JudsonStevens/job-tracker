@@ -7,7 +7,7 @@ describe "User sees all jobs" do
     company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver", category_id: category.id)
     company.jobs.create!(title: "QA Analyst", level_of_interest: 70, city: "Denver", category_id: category.id)
 
-    visit company_path(company)
+    visit company_jobs_path(company)
 
     expect(page).to have_content("ESPN")
     expect(page).to have_content("Developer")
@@ -22,7 +22,7 @@ describe "User sees all jobs" do
     company.jobs.create!(title: "QA Analyst", level_of_interest: 70, city: "Denver", category_id: category.id)
     job = Job.all.first
 
-    visit company_path(company)
+    visit company_jobs_path(company)
     click_on('Developer')
 
     expect(current_path).to eq("/companies/#{company.id}/jobs/#{job.id}")
@@ -37,7 +37,7 @@ describe "User sees all jobs" do
     job_1 = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver", category_id: category.id)
     job_2 = company.jobs.create!(title: "QA Analyst", level_of_interest: 70, city: "Denver", category_id: category.id)
 
-    visit company_path(company)
+    visit company_jobs_path(company)
     click_on('Developer')
     click_on('Update This Job')
 
