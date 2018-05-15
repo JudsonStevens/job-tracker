@@ -16,6 +16,7 @@
 # users commonly want.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
@@ -47,12 +48,28 @@ RSpec.configure do |config|
   # triggering implicit auto-inclusion in groups with matching metadata.
   config.shared_context_metadata_behavior = :apply_to_host_groups
 
-    config.before(:all) do
-    DatabaseCleaner.clean
+  config.before(:suite) do
+    DatabaseCleaner.clean_with(:truncation)
   end
+ 
+  config.before(:each) do
+    DatabaseCleaner.strategy = :transaction
+  end
+ 
+  config.before(:each, :js => true) do
+    DatabaseCleaner.strategy = :truncation
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
   config.after(:each) do
     DatabaseCleaner.clean
   end
+  # config.before(:each) do
+  #   DatabaseCleaner.strategy = :transaction
+  # end
 
 
 # The settings below are suggested to provide a good initial experience
