@@ -1,7 +1,13 @@
 class JobsController < ApplicationController
   def index
-    @company = Company.find(params[:company_id])
-    @jobs = @company.jobs
+    if params[:company_id]
+      @company = Company.find(params[:company_id])
+      @jobs = @company.jobs
+    elsif params[:sort]
+      jobs = Job.all
+      @jobs = jobs.sort_by_interest
+      # binding.pry
+    end
   end
 
   def new
