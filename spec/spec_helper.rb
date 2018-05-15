@@ -67,9 +67,6 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
-  # config.before(:each) do
-  #   DatabaseCleaner.strategy = :transaction
-  # end
 
 
 # The settings below are suggested to provide a good initial experience

@@ -2,7 +2,7 @@ All Categories
 
 <% @categories.each do |category| %>
   <ul><a href="/categories/<%= category.id %>"><%= category.title %></a>
-    <li><%= link_to "Edit", edit_category_path(category), method: "get" %></li>
+    <li><%= link_to "Edit", edit_category_path(category) %></li>
     <li><%= link_to "Delete", category_path(category), method: "delete" %></li>
   </ul>
 <% end %>
