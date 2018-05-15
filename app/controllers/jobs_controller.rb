@@ -4,7 +4,9 @@ class JobsController < ApplicationController
       @company = Company.find(params[:company_id])
       @jobs = @company.jobs
     elsif params[:sort]
-      @jobs = Job.all.sort_by_interest
+      jobs = Job.all
+      @jobs = jobs.sort_by_interest
+      # binding.pry
     end
   end
 
