@@ -15,5 +15,9 @@ class Job < ApplicationRecord
   def self.by_category(id)
     joins(:company).where(category_id: id)
   end
+
+  def self.count_of_jobs_by_location
+    group(:city).order(count_id: :desc).count(:id)
+  end
   
 end
