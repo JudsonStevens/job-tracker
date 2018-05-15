@@ -8,6 +8,10 @@ class Job < ApplicationRecord
     Job.find(Job.id).job_comments.order(:created_at)
   end
 
+  def sort_by_interest
+    
+  end
+  
   def self.by_category(id)
     joins(:company).where(category_id: id)
   end
