@@ -7,7 +7,7 @@ All Jobs for <strong><%= @company.name %></strong>
 <%else%>
 All Jobs
 <% @jobs.each do |job| %>
-  <%= link_to "#{job.title}", company_job_path(@company.id, job.id)%> at <%= job.company.name %>
+  <%= link_to "#{job.title}", company_job_path(job.company.id, job.id)%> at <%= job.company.name %>
   Level of Interest: <%= job.level_of_interest %>
 <% end %>
 <%end%>

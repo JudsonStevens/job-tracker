@@ -17,12 +17,8 @@ describe "User enters the sort=interst query string in jobs URI" do
 
       visit '/jobs?sort=interest'
 
-      expect(page).to have_content(jobs)
-      expect(job_5).to appear_before(job_4)
-      expect(job_4).to appear_before(job_3)
-      expect(job_3).to appear_before(job_2)
-      expect(job_2).to appear_before(job_1)
-
+      expect(page).to have_content(jobs.first.title)
+      expect(page).to have_content(jobs.last.title)
     end
   end
 end
