@@ -81,6 +81,7 @@ describe Job do
         job_4 = company_2.jobs.create(title: "Foobaz", description: "uiop", level_of_interest: 80, city: "degoba", category_id: cat_2.id)
         job_5 = company_3.jobs.create(title: "Bazbar", description: "zxcvbn", level_of_interest: 90, city: "Hoth", category_id: cat_2.id)
         jobs = Job.all
+        
         expect(jobs.size).to eq(5)
         expect(jobs.sort_by_interest.first).to eq(job_5)
         expect(jobs.all.sort_by_interest.last).to eq(job_1) 
