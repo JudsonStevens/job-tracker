@@ -15,6 +15,7 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find(params[:id])
+    @jobs = Job.by_category(params[:id])
   end
 
   def index

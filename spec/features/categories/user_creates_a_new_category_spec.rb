@@ -8,7 +8,7 @@ describe 'User creates a new category' do
 
     click_button('Create Category')
 
-    expect(current_path).to eq("/categories/#{Category.all.first.id}")
+    expect(current_path).to eq("/categories/#{Category.all.last.id}")
     expect(page).to have_content('Web Designer')
   end
 end
