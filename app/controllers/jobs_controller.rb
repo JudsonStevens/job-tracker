@@ -20,12 +20,11 @@ class JobsController < ApplicationController
     end
   end
 
-  # Ask about calling @job.comments and how to do it from model, if need be.
   def show
     @job = Job.find(params[:id])
     @company = @job.company
     @comment = Comment.new
-    @comments = @job.comments.order(created_at: :desc)
+    @comments = @job.sort_comments
   end
 
   def edit
