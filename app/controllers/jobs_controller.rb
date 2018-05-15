@@ -6,7 +6,6 @@ class JobsController < ApplicationController
     elsif params[:sort]
       jobs = Job.all
       @jobs = jobs.sort_by_interest
-      # binding.pry
     end
   end
 
