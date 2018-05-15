@@ -1,10 +1,10 @@
 <h1><%= @category.title %> Jobs </h1>
 
-<ul><%= @jobs.each do |job| %>
+<ul><% @jobs.each do |job| %>
       <li>Title: <%= job.title %></li>
-      <li>Description: <%= job.description %>
-      <li>Level of Interest: <%job.level_of_interest %>
-      <li>City: <%job.city%>
-      <li>Company: <%= link_to job.company.name, company_path %>
+      <li>Description: <%= job.description %></li>
+      <li>Level of Interest: <%= job.level_of_interest %></li>
+      <li>City: <%= job.city %></li>
+      <li>Company: <%= job.company.name %></li>
       <%end%>
 </ul>

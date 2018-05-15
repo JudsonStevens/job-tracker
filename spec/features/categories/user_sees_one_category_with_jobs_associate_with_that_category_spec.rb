@@ -3,7 +3,8 @@ require 'rails_helper'
 describe "User visits a category page," do
   it "user sees a list of jobs associated with that category" do
     category = Category.create(title: 'Foo')
-    job = Job.create(title: 'Dev', level_of_interest: 80, city: 'Denver', category_id: category.id)
+    company = Company.create(name: 'Baz')
+    job = company.jobs.create(title: 'Dev', level_of_interest: 80, city: 'Denver', category_id: category.id)
 
     visit category_path(category.id)
 

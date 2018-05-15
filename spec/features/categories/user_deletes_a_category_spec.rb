@@ -11,7 +11,5 @@ describe "user wants to delete category" do
 
       expect(page).to_not have_content(category)
     end
-    
   end
-  
 end
