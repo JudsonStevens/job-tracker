@@ -16,11 +16,11 @@ Company: <%= link_to @job.company.name, company_path(@job.company) %>
 Category: <%= @job.category.title %>
 <br>
 
-<%= render partial: '/job_comments/form'%>
+<%= render partial: '/comments/form'%>
 <br>
 Previous Comments: 
 <p>
-  <% @job_comments.each do |comment| %>
+  <% @comments.each do |comment| %>
    <p> <%= comment.content %> </p>
   <% end %>
 </p>

@@ -1,5 +1,15 @@
-All Jobs for <strong><%= @company.name %></strong>
+<h1><%= @company.name %></h1>
+<%= link_to 'This is SVG for Edit', edit_company_path(@company) %>
+<%= link_to 'This is SVG for Delete', controller: 'companies', action: 'destroy', method: :delete %>
 
-<% @company.jobs.each do |job| %>
-  <ul><%= job.title %></ul>
+<%= render partial: 'contacts/form' %>
+
+<p>Existing Contacts</p>
+<% @company.contacts.each do |contact| %>
+  <%= link_to 'This is SVG for Edit Contact', edit_company_contact_path(@company, contact) %>
+  <%= link_to 'This is SVG for Delete Contact', company_contact_path(@company, contact), action: 'destroy', method: :delete %>
+  <%= contact.name %>
+  <%= contact.position %>
+  <a href="mailto:#{<%= contact.email%>}"><%= contact.email %></a>
 <% end %>
+

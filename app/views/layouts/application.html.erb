@@ -4,6 +4,7 @@
   <title>JobTracker</title>
   <%= stylesheet_link_tag 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css' %>
   <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= stylesheet_link_tag 'main', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
@@ -14,8 +15,8 @@
         <a class='navbar-brand' href='/homepage'>Job Tracker</a>
       </div>
       <ul class='nav navbar-nav'>
-        <li><a href='/categories'>Categories</a></li>
-        <li><a href='/companies'>Companies</a></li>
+        <a href='/categories'>Categories</a>
+        <a href='/companies'>Companies</a>
       </ul>
     </div>
   </nav>
