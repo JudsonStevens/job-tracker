@@ -8,7 +8,9 @@ describe "User visits a category page," do
     visit category_path(category.id)
 
     expect(page).to have_content("Foo")
-    expect(page).to have_content("Dev")
-    expect(page).to have_content("Denver")
+    expect(page).to have_content(job.title)
+    expect(page).to have_content(job.city)
+    expect(page).to have_content(job.level_of_interest)
+    
   end
 end
