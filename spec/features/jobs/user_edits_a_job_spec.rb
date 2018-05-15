@@ -7,7 +7,7 @@ describe 'User can edit a specific job' do
     job_1 = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver", category_id: category.id)
     job_2 = company.jobs.create!(title: "QA Analyst", level_of_interest: 70, city: "New York City", category_id: category.id)
 
-    visit company_path(company)
+    visit company_jobs_path(company)
     click_on('Developer')
     click_on('Update This Job')
 

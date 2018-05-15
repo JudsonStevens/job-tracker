@@ -13,19 +13,19 @@ class JobsController < ApplicationController
     @company = Company.find(params[:company_id])
     @job = @company.jobs.new(job_params)
     if @job.save
-      flash[:success] = "You created #{@job.title} at #{@company.name}"
+      flash[:success] = "You created a new job called #{@job.title} at #{@company.name}"
       redirect_to company_job_path(@company, @job)
     else
       render :new
     end
   end
 
-  # Ask about calling @job.job_comments and how to do it from model, if need be.
+  # Ask about calling @job.comments and how to do it from model, if need be.
   def show
     @job = Job.find(params[:id])
     @company = @job.company
-    @job_comment = JobComment.new
-    @job_comments = @job.job_comments.order(created_at: :desc)
+    @comment = Comment.new
+    @comments = @job.comments.order(created_at: :desc)
   end
 
   def edit

@@ -1,0 +1,11 @@
+.container-fluid:before, .container-fluid:after {
+  content: none;
+}
+
+.navbar-nav {
+  flex-direction: row;
+}
+
+.navbar-nav a {
+  padding-left: 15px;
+}
