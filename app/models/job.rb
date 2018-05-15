@@ -9,7 +9,7 @@ class Job < ApplicationRecord
   end
 
   def self.sort_by_interest
-    
+    order(:level_of_interest).reverse
   end
   
   def self.by_category(id)
