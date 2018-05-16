@@ -12,7 +12,7 @@ COMPANIES.each do |name|
   puts "Created #{company.name}"
   category = Category.create!(title: CATEGORIES.shift)
   10.times do |num|
-    company.jobs.create!(title: JOBS.sample, description: "What a great position!", level_of_interest: num + rand(100), city: CITIES.sample, category_id: category.id)
+    company.jobs.create!(title: JOBS.sample, description: "What a great position!", level_of_interest: num + rand(93), city: CITIES.sample, category_id: category.id)
     puts "Created #{company.jobs[num].title} with #{category.title}"
   end
 end

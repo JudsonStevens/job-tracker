@@ -16,9 +16,9 @@
 <div id="interests">
   <h1>Jobs by Interest</h1>
   <table id="interest-table">
-    <% @level_of_interest.each do |level| %>
+    <% @level_of_interest.each do |key, value| %>
       <tr>
-        <td><%=level[0] %>: <%= level[1] %></td>
+        <td><%= key %>: <%= value %></td>
       </tr>
     <% end %>
   </table>

@@ -44,6 +44,7 @@ group :development, :test do
   gem 'pry'
   gem 'database_cleaner'
   gem 'orderly'
+  gem 'simplecov'
 end
 
 group :development do

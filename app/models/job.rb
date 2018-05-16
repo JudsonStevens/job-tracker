@@ -1,6 +1,6 @@
 class Job < ApplicationRecord
   validates :title, :level_of_interest, :city, presence: true
-  has_many :comments
+  has_many :comments, dependent: :destroy
   belongs_to :company
   belongs_to :category
 
@@ -28,18 +28,8 @@ class Job < ApplicationRecord
   def self.location_select(city)
     includes(:company).where(city: city)
   end
-  
+
   def self.count_by_level_of_interest
-    levels = (1..100)
-    actual_counts = []
-    levels.each do |level|
-      actual = where(level_of_interest: level).count
-      if actual == 0
-        next
-      else
-        actual_counts << [level, actual]
-      end
-    end
-    actual_counts
+    group(:level_of_interest).order('level_of_interest DESC').count(:id).take(3)
   end
 end
