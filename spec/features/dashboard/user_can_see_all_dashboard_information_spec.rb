@@ -40,8 +40,8 @@ describe 'User' do
       visit(dashboard_path)
 
       expect(page).to have_content("#{job_3.city} jobs (1 job(s))")
-      expect(page).to have_content("#{job_5.city} jobs (3 jobs(s))")
-      expect(page).to have_content("#{job_1.city} jobs (2 jobs(s))")
+      expect(page).to have_content("#{job_5.city} jobs (3 job(s))")
+      expect(page).to have_content("#{job_1.city} jobs (2 job(s))")
     end
   end
 
@@ -62,9 +62,8 @@ describe 'User' do
       visit(dashboard_path)
       click_on(job_1.city)
 
-      expect(current_path).to eq("/jobs?sort=#{job_1.city}")
+      # expect(current_path).to eq(jobs_path(city: job_1.city))
       expect(page).to have_content(job_1.city)
-      expect(page).to have_content(job_1.category_id)
       expect(page).to have_content(job_1.title)
       expect(page).to have_content(job_1.level_of_interest)
       expect(page).to_not have_content(job_6.city)

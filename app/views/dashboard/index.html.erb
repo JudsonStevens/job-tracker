@@ -8,7 +8,7 @@
   </ul>
   <ul>
     <% @count_of_jobs_by_location.each do |job_city, count| %>
-      <li><%= link_to "#{job_city} jobs", jobs_path(city: job_city) %> (<%= "#{count}" %> jobs)</li>
+      <li><%= link_to "#{job_city} jobs", jobs_path(city: job_city) %> (<%= "#{count}" %> job(s))</li>
     <% end %>
   </ul>
 </div>
