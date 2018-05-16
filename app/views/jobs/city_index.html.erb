@@ -1,0 +1,10 @@
+<ul>
+  <% @jobs.each do |job| %>
+    <li>
+      <%= job.title %>
+      <%= job.company.name %>
+      <%= job.city %>
+      <%= job.level_of_interest %>
+    </li>
+  <% end %>
+</ul>

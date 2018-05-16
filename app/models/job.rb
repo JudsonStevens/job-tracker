@@ -19,4 +19,9 @@ class Job < ApplicationRecord
   def self.count_of_jobs_by_location
     group(:city).order('count_id DESC').count(:id)
   end
+
+  # Ask about includes and a better way to do this
+  def self.location_select(city)
+    includes(:company).where(city: city)
+  end
 end
