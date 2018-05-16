@@ -3,10 +3,12 @@
 <ul>
   <% @jobs.each do |job| %>
     <li>
-      <%= svg_asset("Edit", width: 20, height: 20) %>
-      <%= link_to "Edit", edit_job_path(job) %>
-      <%= svg_asset("Delete", width: 20, height: 20) %>
-      <%= link_to "Delete", job_path(job), method: "delete" %> 
+      <%= link_to edit_job_path(job) do %>
+        <%= svg_asset("Edit", width: 20, height: 20) %>
+      <% end %>
+      <%= link_to job_path(job), method: "delete" do %> 
+        <%= svg_asset("Delete", width: 20, height: 20) %>
+      <% end %>
       Title: <%= link_to "#{job.title}", company_job_path(job.company, job) %>
       Description: <%= job.description %>
       Level of Interest: <%= job.level_of_interest %>

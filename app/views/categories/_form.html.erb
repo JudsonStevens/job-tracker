@@ -1,6 +1,12 @@
-<%= form_for @category do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-
-  <%= f.submit %>
-<% end %>
+<div class='create-category-form'>
+  <%= form_for @category do |f| %>
+    <div>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
+    <div class='category-create-button'>
+      <%= f.submit :class => "btn btn-default" %>
+      <%= link_to 'Cancel', :back, {class: "btn btn-default"} %>
+    </div>
+  <% end %>
+</div>

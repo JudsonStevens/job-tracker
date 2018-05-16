@@ -7,7 +7,8 @@ describe "user wants to delete category" do
 
       visit categories_path
 
-      click_link "Delete"
+      find(:css, ".delete-category-link").click
+
 
       expect(page).to_not have_content(category)
     end

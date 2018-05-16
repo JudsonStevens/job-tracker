@@ -3,10 +3,12 @@
 <ul>
   <% @categories.each do |category| %>
     <li>
-      <%= svg_asset("Edit", width: 20, height: 20) %>
-      <%= link_to "Edit", edit_category_path(category) %>
-      <%= svg_asset("Delete", width: 20, height: 20) %>
-      <%= link_to "Delete", category_path(category), method: "delete" %> 
+      <%= link_to edit_category_path(category), class: 'edit-category-link' do %>
+        <%= svg_asset("Edit", width: 20, height: 20) %>
+      <% end %>
+      <%= link_to category_path(category), method: "delete", class: 'delete-category-link' do %> 
+        <%= svg_asset("Delete", width: 20, height: 20) %>
+      <% end %>
       --
       <a href="/categories/<%= category.id %>"><%= category.title %></a>
       <%= link_to category_jobs_path(category) do %>

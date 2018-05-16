@@ -5,7 +5,7 @@ describe "users click edit on the index page" do
     category = Category.create(title: "Foo")
 
     visit categories_path
-    click_link "Edit"
+    find(:css, ".edit-category-link").click
 
     fill_in "category[title]",	with: "Foobarbaz"
 
