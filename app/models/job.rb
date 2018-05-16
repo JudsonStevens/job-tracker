@@ -20,4 +20,8 @@ class Job < ApplicationRecord
     joins(:company).where(category_id: id)
   end
   
+  def self.count_by_level_of_interest(level_of_interest)
+    where(level_of_interest: level_of_interest).count
+  end
+  
 end
