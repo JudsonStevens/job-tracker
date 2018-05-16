@@ -104,9 +104,9 @@ describe Job do
 
 
       expect(jobs.size).to eq(5)
-      expect(jobs.count_by_level_of_interest[0][1]).to eq(2)
+      expect(jobs.count_by_level_of_interest[0][1]).to eq(1)
       expect(jobs.count_by_level_of_interest[1][1]).to eq(2)
-      expect(jobs.count_by_level_of_interest[2][1]).to eq(1)
+      expect(jobs.count_by_level_of_interest[2][1]).to eq(2)
       end
     end
   end

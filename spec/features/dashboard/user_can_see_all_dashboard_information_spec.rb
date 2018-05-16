@@ -90,7 +90,6 @@ describe 'User' do
         expect(page).to have_content("Jobs by Interest")
       end
       within("#interest-table") do
-      expect(page).to have_content("1: 1")
       expect(page).to have_content("30: 2")
       expect(page).to have_content("50: 2")
       expect(page).to have_content("80: 1")
