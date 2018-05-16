@@ -44,3 +44,12 @@ describe "User sees all jobs" do
     expect(current_path).to eq("/companies/#{company.id}/jobs/#{job_1.id}/edit")
   end
 end
+
+describe "User fails to supply params" do
+  scenario 'so the user gets redirected to the dashboard' do
+    visit jobs_path('')
+
+    expect(current_path).to eq(companies_path)
+  end
+end
+
