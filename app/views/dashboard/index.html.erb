@@ -1,4 +1,8 @@
 <div class='box'>
+  <% @count_of_jobs_by_location.each do |city, count| %>
+    <%= <%= link_to "#{city}", jobs_path %>%>
+
+<div class='box'>
   <h1>Top Companies by Interest</h1>
   <ul>
     <li><%= @top_three_companies[0][0] %> - <%= @top_three_companies[0][1] %>
