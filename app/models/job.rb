@@ -17,6 +17,6 @@ class Job < ApplicationRecord
   end
 
   def self.count_of_jobs_by_location
-    group(:city).order(count_id: :desc).count(:id)
+    group(:city).order('count_id DESC').count(:id)
   end
 end
