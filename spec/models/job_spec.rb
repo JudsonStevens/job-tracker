@@ -89,7 +89,7 @@ describe Job do
     end
 
     describe "The count_by_level_of_interest method" do
-      it "returns a count of jobs by level of interest"
+      it "returns a count of jobs by level of interest" do
         company_1 = Company.create(name: "Foo")
         company_2 = Company.create(name: "Bar")
         company_3 = Company.create(name: "Baz")
@@ -103,9 +103,10 @@ describe Job do
         jobs = Job.all
 
       expect(jobs.size).to eq(5)
-      expect(jobs.sort_by_interest(50)).to eq(2)
-      expect(jobs.sort_by_interest(80)).to eq(2)
-      expect(jobs.sort_by_interest(90)).to eq(1)
+      expect(jobs.count_by_level_of_interest(50)).to eq(2)
+      expect(jobs.count_by_level_of_interest(80)).to eq(2)
+      expect(jobs.count_by_level_of_interest(90)).to eq(1)
+      end
     end
   end
 end
