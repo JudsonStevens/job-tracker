@@ -36,14 +36,13 @@ describe 'User' do
       job_5 = company_3.jobs.create(title: "HR", level_of_interest: 30, city: "New York City", category_id: category.id)
       job_6 = company_3.jobs.create(title: "HR", level_of_interest: 80, city: "New York City", category_id: category.id)
 
-      visit(dashboard_path)
+      visit dashboard_path
 
       expect(page).to have_content("Jobs by Interest")
-      expect(page).to have_content("10: 1")
-      expect(page).to have_content("30: 2")
-      expect(page).to have_content("50: 2")
-      expect(page).to have_content("80: 1")
+      expect(page).to have_content("10  1")
+      expect(page).to have_content("30  2")
+      expect(page).to have_content("50  2")
+      expect(page).to have_content("80  1")
     end
-    
   end
 end

@@ -12,7 +12,8 @@
   <table>
     <% (1..100).each do |level| %>
       <tr>
-        <td><%level%>: <%@jobs.count_by_level_of_interest(level)%></td>
+        <td><% (level)%>    <% @jobs.count_by_level_of_interest(level)%></td>
+      </tr>
     <% end %>
   </table>
 </div>
