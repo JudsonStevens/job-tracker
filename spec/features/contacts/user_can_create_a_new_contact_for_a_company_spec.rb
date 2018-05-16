@@ -17,4 +17,14 @@ describe 'User' do
     expect(page).to have_content(position)
     expect(page).to have_content(email)
   end
+
+  it 'tries to submit a blank form which should raise a failure message' do
+    company = Company.create(name: "ESPN")
+
+    visit(company_path(company))
+    click_on('Create Contact')
+
+    expect(page).to have_content("You must fill in all fields for a new contact.")
+  end
+
 end

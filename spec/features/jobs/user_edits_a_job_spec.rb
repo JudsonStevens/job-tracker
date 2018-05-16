@@ -14,4 +14,19 @@ describe 'User can edit a specific job' do
     expect(current_path).to eq("/companies/#{company.id}/jobs/#{job_1.id}/edit")
     expect(page).to have_content('')
   end
+
+  it "by clicking on edit" do
+    company = Company.create(id: 1, name: "Foo")
+    category = Category.create(id: 1, title: "Bar")
+    job = company.jobs.create(id: 1, title: "Baz", level_of_interest: 75, city: "New Qux City", category_id: category.id)
+
+    visit edit_company_job_path(company, job)
+
+    fill_in "job[title]",	with: "Hot Topic!"
+    click_on "Update Job"
+
+    expect(current_path).to eq(company_job_path(company, job))
+    expect(page).to have_content("Hot Topic!")
+    expect(page).to_not have_content("Baz")
+  end
 end

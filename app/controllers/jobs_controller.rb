@@ -6,9 +6,11 @@ class JobsController < ApplicationController
     elsif params[:sort]
       jobs = Job.all
       @jobs = jobs.sort_by_interest
-    else
+    elsif params[:company_id]
       @company = Company.find(params[:company_id])
       @jobs = @company.jobs
+    else
+      redirect_to companies_path
     end
   end
 

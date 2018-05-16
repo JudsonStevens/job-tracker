@@ -14,4 +14,15 @@ describe 'User can create a new comment' do
     expect(current_path).to eq("/companies/#{company.id}/jobs/#{job.id}")
     expect(page).to have_content(comment_content)
   end
+
+  scenario 'but leaving it blank should raise a failure message' do
+    company = Company.create(name: "ESPN")
+    category = Category.create(title: 'Web')
+    job = company.jobs.create(title: "Developer", description: 'Great job', level_of_interest: 70, category_id: category.id, city: "Denver")
+
+    visit(company_job_path(company, job))
+    click_on('Create Comment')
+
+    expect(page).to have_content("Make sure you fill in all fields to create a new comment")
+  end
 end
