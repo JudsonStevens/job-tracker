@@ -12,6 +12,10 @@ class Job < ApplicationRecord
     joins(:company).group(:name).order("average_level_of_interest DESC").average(:level_of_interest).take(3)
   end
 
+  def self.sort_by_interest
+    order(:level_of_interest).reverse
+  end
+  
   def self.by_category(id)
     joins(:company).where(category_id: id)
   end
@@ -23,5 +27,9 @@ class Job < ApplicationRecord
   # Ask about includes and a better way to do this
   def self.location_select(city)
     includes(:company).where(city: city)
+  end
+  
+  def self.count_by_level_of_interest(level_of_interest)
+    where(level_of_interest: level_of_interest).count
   end
 end

@@ -3,6 +3,9 @@ class JobsController < ApplicationController
     if params[:city]
       @jobs = Job.location_select(params[:city])
       render 'jobs/city_index'
+    elsif params[:sort]
+      jobs = Job.all
+      @jobs = jobs.sort_by_interest
     else
       @company = Company.find(params[:company_id])
       @jobs = @company.jobs

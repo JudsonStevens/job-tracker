@@ -1,8 +1,16 @@
+<%if @company%>
 All Jobs for <strong><%= @company.name %></strong>
-
 <% @jobs.each do |job| %>
   <ul><%= link_to "#{job.title}", company_job_path(@company.id, job.id)%> at <%= job.company.name %> -- <%= link_to 'Update This Job', edit_company_job_path(@company, job)%></ul>
 <% end %>
 <ul><%= link_to "Create a New Job for #{@company.name}", new_company_job_path(@company) %></ul>
+<%else%>
+All Jobs
+<% @jobs.each do |job| %>
+  <%= link_to "#{job.title}", company_job_path(job.company.id, job.id)%> at <%= job.company.name %>
+  Level of Interest: <%= job.level_of_interest %>
+<% end %>
+<%end%>
+
 
 
