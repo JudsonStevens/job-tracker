@@ -1,3 +1,7 @@
+body {
+  background-color: rgb(156, 196, 168);
+}
+
 .container-fluid:before, .container-fluid:after {
   content: none;
 }
@@ -8,4 +12,27 @@
 
 .navbar-nav a {
   padding-left: 15px;
+}
+
+.container .row .col {
+  min-height: 200px;
+  border: 5px solid black;
+  margin-right: 20px;
+}
+
+.container, #all-categories, #interest-sort, .project-title, .new-category {
+  margin-left: 25px;
+}
+
+.job-list-city {
+  margin-top: 50px;
+  margin-left: 100px;
+}
+
+#interest-table {
+  margin-left: 45px;
+}
+
+.new-category {
+  font-size: 20px;
 }

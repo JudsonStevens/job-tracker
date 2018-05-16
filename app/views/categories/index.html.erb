@@ -1,8 +1,17 @@
-All Categories
-
-<% @categories.each do |category| %>
-  <ul><a href="/categories/<%= category.id %>"><%= category.title %></a>
-    <li><%= link_to "Edit", edit_category_path(category) %></li>
-    <li><%= link_to "Delete", category_path(category), method: "delete" %></li>
-  </ul>
-<% end %>
+<h1 id='all-categories'>All Categories</h1>
+<%= link_to 'Add a New Category', new_category_path, class: 'new-category' %>
+<ul>
+  <% @categories.each do |category| %>
+    <li>
+      <%= svg_asset("Edit", width: 20, height: 20) %>
+      <%= link_to "Edit", edit_category_path(category) %>
+      <%= svg_asset("Delete", width: 20, height: 20) %>
+      <%= link_to "Delete", category_path(category), method: "delete" %> 
+      --
+      <a href="/categories/<%= category.id %>"><%= category.title %></a>
+      <%= link_to category_jobs_path(category) do %>
+        <%= @category_count[category.id] %> jobs
+      <% end %>
+    </li>
+  <% end %>
+</ul>

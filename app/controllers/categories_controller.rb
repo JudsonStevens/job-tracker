@@ -20,6 +20,7 @@ class CategoriesController < ApplicationController
 
   def index
     @categories = Category.all
+    @category_count = Job.count_by_category
   end
 
   def edit

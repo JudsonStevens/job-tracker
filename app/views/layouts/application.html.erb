@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>JobTracker</title>
-  <%= stylesheet_link_tag 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css' %>
-  <%= stylesheet_link_tag 'application', media: 'all' %>
-  <%= stylesheet_link_tag 'main', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <nav class='navbar navbar-inverse'>
-    <div class='container-fluid'>
-      <div class='navbar-header'>
-        <a class='navbar-brand' href='/homepage'>Job Tracker</a>
+  <head>
+    <title>JobTracker</title>
+    <%= stylesheet_link_tag 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= stylesheet_link_tag 'main', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <nav class='navbar navbar-inverse'>
+      <div class='container-fluid'>
+        <div class='navbar-header'>
+          <a class='navbar-brand' href='/dashboard'>Job Tracker</a>
+        </div>
+        <ul class='nav navbar-nav'>
+          <a href='/categories'>Categories</a>
+          <a href='/companies'>Companies</a>
+        </ul>
       </div>
-      <ul class='nav navbar-nav'>
-        <a href='/categories'>Categories</a>
-        <a href='/companies'>Companies</a>
-      </ul>
-    </div>
-  </nav>
-  <% flash.each do |name, msg| %>
-    <%= content_tag :div, msg, class: name %>
-  <% end %>
-<%= yield %>
+    </nav>
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, class: name %>
+    <% end %>
+    <%= yield %>
 
-</body>
+  </body>
 </html>

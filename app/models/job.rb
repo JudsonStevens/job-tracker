@@ -17,7 +17,11 @@ class Job < ApplicationRecord
   end
   
   def self.by_category(id)
-    joins(:company).where(category_id: id)
+    includes(:company).where(category_id: id)
+  end
+
+  def self.count_by_category
+    joins(:company).group(:category_id).count(:category_id)
   end
 
   def self.count_of_jobs_by_location
@@ -30,6 +34,6 @@ class Job < ApplicationRecord
   end
 
   def self.count_by_level_of_interest
-    group(:level_of_interest).order('level_of_interest DESC').count(:id).take(3)
+    group(:level_of_interest).order('level_of_interest DESC').count(:id).take(10)
   end
 end

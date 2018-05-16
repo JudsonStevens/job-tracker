@@ -1,10 +1,17 @@
 <h1><%= @category.title %> Jobs </h1>
 
-<ul><% @jobs.each do |job| %>
-      <li>Title: <%= job.title %></li>
-      <li>Description: <%= job.description %></li>
-      <li>Level of Interest: <%= job.level_of_interest %></li>
-      <li>City: <%= job.city %></li>
-      <li>Company: <%= job.company.name %></li>
-      <%end%>
+<ul>
+  <% @jobs.each do |job| %>
+    <li>
+      <%= svg_asset("Edit", width: 20, height: 20) %>
+      <%= link_to "Edit", edit_job_path(job) %>
+      <%= svg_asset("Delete", width: 20, height: 20) %>
+      <%= link_to "Delete", job_path(job), method: "delete" %> 
+      Title: <%= link_to "#{job.title}", company_job_path(job.company, job) %>
+      Description: <%= job.description %>
+      Level of Interest: <%= job.level_of_interest %>
+      City: <%= job.city %>
+      Company: <%= job.company.name %>
+    </>
+  <%end%>
 </ul>

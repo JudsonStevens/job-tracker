@@ -1,24 +1,33 @@
-<div class='box'>
-  <h1>Top Companies by Interest</h1>
-  <ul>
-    <li><%= @top_three_companies[0][0] %> - <%= @top_three_companies[0][1] %>
-    <li><%= @top_three_companies[1][0] %> - <%= @top_three_companies[1][1] %>
-    <li><%= @top_three_companies[2][0] %> - <%= @top_three_companies[2][1] %>
-  </ul>
-  <ul>
-    <% @count_of_jobs_by_location.each do |job_city, count| %>
-      <li><%= link_to "#{job_city} jobs", jobs_path(city: job_city) %> (<%= "#{count}" %> job(s))</li>
-    <% end %>
-  </ul>
-</div>
+<h1 class='project-title'>Job Tracker</h1>
 
-<div id="interests">
-  <h1>Jobs by Interest</h1>
-  <table id="interest-table">
-    <% @level_of_interest.each do |interest, count| %>
-      <tr>
-        <td><%= interest %>: <%= count %></td>
-      </tr>
-    <% end %>
-  </table>
+<div class='container'>
+  <div class='row'>
+    <div class='col'>
+      <div id="interests">
+        <h1>Jobs by Interest</h1>
+        <table id="interest-table">
+          <% @level_of_interest.each do |interest, count| %>
+            <tr>
+              <td><%= interest %>: (<%= count %> jobs)</td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+   <div class='col'>
+      <h1>Top Companies by Interest</h1>
+      <ul>
+        <li><%= @top_three_companies[0][0] %> - <%= @top_three_companies[0][1] %>
+        <li><%= @top_three_companies[1][0] %> - <%= @top_three_companies[1][1] %>
+        <li><%= @top_three_companies[2][0] %> - <%= @top_three_companies[2][1] %>
+      </ul>
+    </div>
+  </div>
+  <div class='job-list-city'>    
+    <ul>
+      <% @count_of_jobs_by_location.each do |job_city, count| %>
+        <li><%= link_to "#{job_city} jobs", jobs_path(city: job_city) %> (<%= "#{count}" %> job(s))</li>
+      <% end %>
+    </ul>
+  </div>
 </div>
