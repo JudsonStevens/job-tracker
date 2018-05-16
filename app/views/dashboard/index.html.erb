@@ -1,5 +1,4 @@
 <div class='box'>
-<div class='box'>
   <h1>Top Companies by Interest</h1>
   <ul>
     <li><%= @top_three_companies[0][0] %> - <%= @top_three_companies[0][1] %>
@@ -16,9 +15,9 @@
 <div id="interests">
   <h1>Jobs by Interest</h1>
   <table id="interest-table">
-    <% @level_of_interest.each do |key, value| %>
+    <% @level_of_interest.each do |interest, count| %>
       <tr>
-        <td><%= key %>: <%= value %></td>
+        <td><%= interest %>: <%= count %></td>
       </tr>
     <% end %>
   </table>
