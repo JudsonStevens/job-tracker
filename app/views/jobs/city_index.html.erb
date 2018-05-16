@@ -1,7 +1,7 @@
 <ul>
   <% @jobs.each do |job| %>
     <li>
-      <%= job.title %>
+      <%= link_to "#{job.title}", job_path(job) %>
       <%= job.company.name %>
       <%= job.city %>
       <%= job.level_of_interest %>
