@@ -1,9 +1,15 @@
 <div class='box'>
+<div class='box'>
   <h1>Top Companies by Interest</h1>
   <ul>
     <li><%= @top_three_companies[0][0] %> - <%= @top_three_companies[0][1] %>
     <li><%= @top_three_companies[1][0] %> - <%= @top_three_companies[1][1] %>
     <li><%= @top_three_companies[2][0] %> - <%= @top_three_companies[2][1] %>
+  </ul>
+  <ul>
+    <% @count_of_jobs_by_location.each do |job_city, count| %>
+      <li><%= link_to "#{job_city} jobs", jobs_path(city: job_city) %> (<%= "#{count}" %> jobs)</li>
+    <% end %>
   </ul>
 </div>
 
