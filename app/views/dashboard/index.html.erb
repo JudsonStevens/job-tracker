@@ -6,3 +6,18 @@
     <li><%= @top_three_companies[2][0] %> - <%= @top_three_companies[2][1] %>
   </ul>
 </div>
+
+<div id="interests">
+  <h1>Jobs by Interest</h1>
+  <table id="interest-table">
+    <% (1..100).each do |level| %>
+      <% if @jobs.count_by_level_of_interest(level) == 0 %>
+      <% next %>
+      <% else %>
+      <tr>
+        <td><%=(level) %>: <%= @jobs.count_by_level_of_interest(level) %></td>
+      </tr>
+      <% end %>
+    <% end %>
+  </table>
+</div>
