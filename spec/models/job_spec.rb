@@ -102,10 +102,11 @@ describe Job do
         job_5 = company_3.jobs.create(title: "Bazbar", description: "zxcvbn", level_of_interest: 90, city: "Hoth", category_id: cat_2.id)
         jobs = Job.all
 
+
       expect(jobs.size).to eq(5)
-      expect(jobs.count_by_level_of_interest(50)).to eq(2)
-      expect(jobs.count_by_level_of_interest(80)).to eq(2)
-      expect(jobs.count_by_level_of_interest(90)).to eq(1)
+      expect(jobs.count_by_level_of_interest[0][1]).to eq(2)
+      expect(jobs.count_by_level_of_interest[1][1]).to eq(2)
+      expect(jobs.count_by_level_of_interest[2][1]).to eq(1)
       end
     end
   end

@@ -1,2 +1,3 @@
 class Dashboard < ApplicationRecord
+  
 end

@@ -16,14 +16,10 @@
 <div id="interests">
   <h1>Jobs by Interest</h1>
   <table id="interest-table">
-    <% (1..100).each do |level| %>
-      <% if @jobs.count_by_level_of_interest(level) == 0 %>
-      <% next %>
-      <% else %>
+    <% @level_of_interest.each do |level| %>
       <tr>
-        <td><%=(level) %>: <%= @jobs.count_by_level_of_interest(level) %></td>
+        <td><%=level[0] %>: <%= level[1] %></td>
       </tr>
-      <% end %>
     <% end %>
   </table>
 </div>

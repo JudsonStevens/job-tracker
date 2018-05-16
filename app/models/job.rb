@@ -29,7 +29,17 @@ class Job < ApplicationRecord
     includes(:company).where(city: city)
   end
   
-  def self.count_by_level_of_interest(level_of_interest)
-    where(level_of_interest: level_of_interest).count
+  def self.count_by_level_of_interest
+    levels = (1..100)
+    actual_counts = []
+    levels.each do |level|
+      actual = where(level_of_interest: level).count
+      if actual == 0
+        next
+      else
+        actual_counts << [level, actual]
+      end
+    end
+    actual_counts
   end
 end
